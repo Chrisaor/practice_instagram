@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from instagram import views as instagram_views
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', instagram_views.IndexView.as_view(), name = 'root'),
@@ -24,3 +26,5 @@ urlpatterns = [
     path('accounts/signup', instagram_views.CreatUserView.as_view(), name = 'signup'),
     path('accounts/login/done', instagram_views.RegisteredView.as_view(), name = 'create_user_done')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
