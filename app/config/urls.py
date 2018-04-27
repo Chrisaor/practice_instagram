@@ -14,13 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from instagram import views as instagram_views
 from django.conf import settings
 from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', instagram_views.IndexView.as_view(), name = 'root'),
+    path('', login_required(instagram_views.IndexView.as_view()), name = 'root'),
     path('instagram/', include('instagram.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', instagram_views.CreatUserView.as_view(), name = 'signup'),
