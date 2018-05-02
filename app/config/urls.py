@@ -24,9 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', login_required(instagram_views.IndexView.as_view()), name = 'root'),
     path('instagram/', include('instagram.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/signup', instagram_views.CreatUserView.as_view(), name = 'signup'),
-    path('accounts/login/done', instagram_views.RegisteredView.as_view(), name = 'create_user_done')
+    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
