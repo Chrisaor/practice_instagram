@@ -17,8 +17,8 @@
         <h2>{{profile_user.profile.nickname}}</h2>
         {% endif %}
         {% if user == profile_user %}
-        <a href="#">
-            <button type="button" class="btn btn-default">프로필 편집</button></a></h2>
+        <a href="{% url 'instagram:profile_update' %}">
+            <button type="button" class="btn btn-default">프로필 편집</button></a>
         {% endif %}
         <h3> username: {{profile_user.username}} <br>
             {% if profile_user.first_name is not None %}

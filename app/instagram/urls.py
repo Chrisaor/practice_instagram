@@ -7,4 +7,5 @@ urlpatterns = [
     path('', login_required(views.IndexView.as_view()), name = 'index'),
     path('upload/', views.upload, name='upload'),
     re_path('profile/(?P<pk>[0-9]+)/', login_required(views.ProfileView.as_view()),name='profile'),
+    path('profile_update/', login_required(views.ProfileUpdateView.as_view()),name='profile_update'),
 ]
