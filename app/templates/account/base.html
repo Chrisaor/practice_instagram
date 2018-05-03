@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_active %}
-                <li><a href="#"> <span class="glyphicon glyphicon-heart"></span> {{user.username}}</a>
+                <li><a href="{% url 'instagram:profile' user.pk %}"> <span class="glyphicon glyphicon-heart"></span> {{user.username}}</a>
                 </li>
                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
